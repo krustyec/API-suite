@@ -1,0 +1,17 @@
+<%- include("partials/header.ejs") %>
+<!-- header -->
+
+<!-- content -->
+<div class="container-fluid">
+  <h1 class="text-center">Welcome to the Best Web API Suite</h1>
+  <div class="text-center align-items-center justify-content-center">
+    <% if (locals.valueYear && locals.cocktail && locals.sourceImg) { %>
+        <h1 class="text-primary "><%= cocktail %></h1>
+        <img src=<%= sourceImg %> class="rounded" alt=<%= cocktail %>>
+    <% } else { %>
+        <p>Waiting for an API entry ...</p>
+    <% } %>
+  </div>
+
+<!-- footer -->
+<%- include("partials/footer.ejs") %>

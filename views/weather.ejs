@@ -1,0 +1,41 @@
+<%- include("partials/header.ejs") %>
+<!-- header -->
+
+<!-- content -->
+<div class="container-fluid">
+  <h1 class="text-center">Welcome to the Best Web API Suite</h1>
+  <div class="text-center align-items-center justify-content-center">
+    <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+      <div class="list-group">
+        <form action="/submitWeather" method="POST">
+          <label class="list-group-item d-flex gap-3">
+            <span class="pt-1 form-checked-content">
+              <strong class="pr-5">Add latitud coordinate:</strong>
+            </span>
+            <input type="text" class="form-control" name="valLat" placeholder="Add Latitud coordinate ...">
+          </label>
+          <label class="list-group-item d-flex gap-3">
+            <span class="pt-1 form-checked-content">
+              <strong class="pr-5">Add longitud coordinate:</strong>
+            </span>
+            <input type="text" class="form-control" name="valLon" placeholder="Add Longitud coordinate ...">
+          </label>
+          <label class="list-group-item d-flex gap-3 text-center">
+            <button type="submit" class="btn btn-primary w-100">Add Coordinates</button>
+          </label>
+        </form>
+      </div>
+    </div>
+    <% if (locals.valueYear && locals.main) { %>
+        <h4 class="text-primary ">The current weather of that location is <%= main %>, which means
+         <%= des %>.</h4>
+        <h4 class="text-dark">Latitud: <%= latServer %>, and Longitud: <%= lonServer %></h4>
+         <p class="text-info">Forecast at <%= dateFor %> it will be <%= mainFor %>, which means
+          <%= desFor %>.</p>
+    <% } else { %>
+        <p>Waiting for latitud and longitud ...</p>
+    <% } %>
+  </div>
+
+<!-- footer -->
+<%- include("partials/footer.ejs") %>
